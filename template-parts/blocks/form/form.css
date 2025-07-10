@@ -1,0 +1,29 @@
+.form-block {
+	border-top: 1px solid #ccc;
+	padding: 40px 0;
+}
+
+.form-content {
+	align-items: flex-start;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.form-col {
+	width: 100%;
+}
+
+.form-block.left .form-content {
+	flex-direction: row-reverse;
+}
+
+@media (min-width:768px) {
+	.form-block {
+		padding: 80px 0;
+	}
+	
+	.form-col {
+		width: 48%;
+	}
+}
