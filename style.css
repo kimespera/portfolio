@@ -78,7 +78,7 @@ main {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 h1 {
-	font-size: 2em;
+	font-size: 4em;
 	margin: 0.67em 0;
 }
 
@@ -383,6 +383,8 @@ html {
 
 /* Typography
 --------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700;900&display=swap');
+
 body,
 button,
 input,
@@ -403,7 +405,31 @@ h4,
 h5,
 h6 {
 	clear: both;
+	font-family: "Bebas Neue", sans-serif;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 1em;
 	margin-top: 0;
+}
+
+h2 {
+	font-size: 3em;
+}
+
+h3 {
+	font-size: 2.5em;
+}
+
+h4 {
+	font-size: 2em;
+}
+
+h5 {
+	font-size: 1.375em;
+}
+
+h6 {
+	font-size: 0.75em;
 }
 
 p {
@@ -638,6 +664,9 @@ textarea {
 	width: 100%;
 }
 
+label sup {
+	color: red;
+}
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
@@ -1069,7 +1098,7 @@ a.button,
 .button {
 	align-items: center;
 	background-color: #66CCFF;
-	border: 0;
+	border: 2px solid #66CCFF;
 	border-radius: 100px;
 	color: #000;
 	display: inline-flex;
@@ -1164,8 +1193,12 @@ a.button:hover,
 	transition: all ease .2s;
 }
 
-.homepage-intro {
+.notop-padding {
 	padding-top: 0 !important;
+}
+
+.notop-border {
+	border-top: 0 !important;
 }
 
 .social-media a:hover i {

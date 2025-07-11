@@ -43,10 +43,10 @@
 								<div class="proj-desc-col">
 									<h2><?php the_title(); ?></h2>
 									<p class="short-description"><?php echo $short_description; ?></p>
-									<p class="platform"><b>Platform : </b><?php echo get_field('platform'); ?></p>
+									<p class="platform"><b>Platform : </b><?php echo $platform; ?></p>
 									<p class="year"><b>Year : </b><?php echo $year; ?></p>
 									<p class="role"><b>Role : </b><?php echo $role; ?></p>
-									<a class="button" href="<?php echo esc_url( $link ); ?>" target="_blank">Live Demo</a>
+									<a class="button" href="<?php echo esc_url( $link ); ?>" target="_blank">View Project</a>
 								</div>
 							</div>
 						</div>

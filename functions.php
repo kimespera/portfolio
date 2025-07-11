@@ -305,12 +305,50 @@ function register_acf_block_types() {
 	acf_register_block_type(array(
 		'name'              => 'content-image',
 		'title'             => __('Content Image Block', 'portfolio'),
-		'description'       => __('A content image block.', 'portfolio'),
+		'description'       => __('A Content Image block.', 'portfolio'),
 		'category'          => 'common',
 		'icon'              => 'id',
 		'mode'              => 'edit',
 		'render_template'   => get_template_directory() . '/template-parts/blocks/content-image/content-image.php',
 		'enqueue_style'     => get_template_directory_uri() . '/template-parts/blocks/content-image/content-image.css',
+		'supports'          => array(
+			'align'  => true,
+			'anchor' => true,
+			'mode'   => false,
+			'jsx'    => true,
+		),
+		'keywords'          => array('title', 'headline', 'header'),
+	));
+
+	// Featured Projects
+	acf_register_block_type(array(
+		'name'              => 'featured-projects',
+		'title'             => __('Featured Projects Block', 'portfolio'),
+		'description'       => __('A Featured Projects block.', 'portfolio'),
+		'category'          => 'common',
+		'icon'              => 'hammer',
+		'mode'              => 'edit',
+		'render_template'   => get_template_directory() . '/template-parts/blocks/featured-projects/featured-projects.php',
+		'enqueue_style'     => get_template_directory_uri() . '/template-parts/blocks/featured-projects/featured-projects.css',
+		'supports'          => array(
+			'align'  => true,
+			'anchor' => true,
+			'mode'   => false,
+			'jsx'    => true,
+		),
+		'keywords'          => array('title', 'headline', 'header'),
+	));
+
+	// Fullwidth WYSIWYG
+	acf_register_block_type(array(
+		'name'              => 'fullwidth-wysiwyg',
+		'title'             => __('Fullwidth WYSIWYG Block', 'portfolio'),
+		'description'       => __('A Fullwidth WYSIWYG block.', 'portfolio'),
+		'category'          => 'common',
+		'icon'              => 'media-text',
+		'mode'              => 'edit',
+		'render_template'   => get_template_directory() . '/template-parts/blocks/fullwidth-wysiwyg/fullwidth-wysiwyg.php',
+		'enqueue_style'     => get_template_directory_uri() . '/template-parts/blocks/fullwidth-wysiwyg/fullwidth-wysiwyg.css',
 		'supports'          => array(
 			'align'  => true,
 			'anchor' => true,

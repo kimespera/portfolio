@@ -1,0 +1,10 @@
+.wyiswyg-block {
+	border-top: 1px solid #ccc;
+	padding: 40px 0;
+}
+
+@media (min-width:768px) {
+	.wyiswyg-block {
+		padding: 80px 0;
+	}
+}
