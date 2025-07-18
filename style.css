@@ -79,7 +79,7 @@ main {
  */
 h1 {
 	font-size: 4em;
-	margin: 0.67em 0;
+	margin: 0 0 0.67em 0;
 }
 
 /* Grouping content
@@ -391,7 +391,7 @@ input,
 select,
 optgroup,
 textarea {
-	color: #fff;
+	color: #C7C7C7;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 1rem;
 	letter-spacing: 1.5px;
@@ -405,11 +405,12 @@ h4,
 h5,
 h6 {
 	clear: both;
+	color: #fff;
 	font-family: "Bebas Neue", sans-serif;
 	font-weight: 700;
 	font-style: normal;
 	line-height: 1em;
-	margin-top: 0;
+	margin: 0 0 .5em 0;
 }
 
 h2 {
@@ -507,7 +508,7 @@ hr {
 
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 1em 0;
 }
 
 ul {
@@ -521,7 +522,7 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-left: 0;
 }
 
 dt {
@@ -558,18 +559,21 @@ table {
 --------------------------------------------- */
 a {
 	color: #66CCFF;
+	outline: 0;
 	text-decoration: none;
 	transition: all ease .3s;
 }
 
 a:visited {
 	color: #66CCFF;
+	outline: 0;
 }
 
 a:hover,
 a:focus,
 a:active {
 	color: #fff;
+	outline: 0;
 }
 
 a:focus {
@@ -1159,6 +1163,7 @@ a.button:hover,
 }
 
 .footer {
+	color: #fff;
 	margin-top: auto;
 }
 
@@ -1262,6 +1267,10 @@ a.button:hover,
 
 .single .proj-img img:hover {
 	transform: none;
+}
+
+.proj-desc-col h2 {
+	color: #000;
 }
 /*--------------------------------------------------------------
 # Media Queries

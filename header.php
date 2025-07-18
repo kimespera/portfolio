@@ -1,10 +1,11 @@
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="no-js">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<?php wp_head(); ?>
+	<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
 </head>
 
 <body <?php body_class(); ?>>

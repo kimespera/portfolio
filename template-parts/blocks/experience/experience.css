@@ -1,0 +1,55 @@
+.experience-block {
+	border-top: 1px solid #ccc;
+	padding: 40px 0;
+}
+
+.experience-box {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.experience-content,
+.experience-list {
+	width: 100%;
+}
+
+.experience-item {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 40px;
+}
+
+.experience-item:last-child {
+	border: 0;
+	margin: 0;
+}
+
+.position-year {
+	margin-bottom: 15px;
+}
+
+.position-year h5 {
+	margin: 0;
+}
+
+.company {
+	color: #fff;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+@media (min-width:768px) {
+	.experience-block {
+		padding: 80px 0;
+	}
+}
+
+@media (min-width:1024px) {
+	.experience-content {
+		width: 40%;
+	}
+
+	.experience-list {
+		width: 55%;
+	}
+}

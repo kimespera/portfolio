@@ -357,6 +357,44 @@ function register_acf_block_types() {
 		),
 		'keywords'          => array('title', 'headline', 'header'),
 	));
+
+	// Experience
+	acf_register_block_type(array(
+		'name'              => 'experience',
+		'title'             => __('Experience Block', 'portfolio'),
+		'description'       => __('An Experience block.', 'portfolio'),
+		'category'          => 'common',
+		'icon'              => 'portfolio',
+		'mode'              => 'edit',
+		'render_template'   => get_template_directory() . '/template-parts/blocks/experience/experience.php',
+		'enqueue_style'     => get_template_directory_uri() . '/template-parts/blocks/experience/experience.css',
+		'supports'          => array(
+			'align'  => true,
+			'anchor' => true,
+			'mode'   => false,
+			'jsx'    => true,
+		),
+		'keywords'          => array('title', 'headline', 'header'),
+	));
+
+	// Capabilities
+	acf_register_block_type(array(
+		'name'              => 'capabilities',
+		'title'             => __('Capabilities Block', 'portfolio'),
+		'description'       => __('A Capabilities block.', 'portfolio'),
+		'category'          => 'common',
+		'icon'              => 'portfolio',
+		'mode'              => 'edit',
+		'render_template'   => get_template_directory() . '/template-parts/blocks/capabilities/capabilities.php',
+		'enqueue_style'     => get_template_directory_uri() . '/template-parts/blocks/capabilities/capabilities.css',
+		'supports'          => array(
+			'align'  => true,
+			'anchor' => true,
+			'mode'   => false,
+			'jsx'    => true,
+		),
+		'keywords'          => array('title', 'headline', 'header'),
+	));
 }
 
 if ( function_exists('acf_register_block_type') ) {
