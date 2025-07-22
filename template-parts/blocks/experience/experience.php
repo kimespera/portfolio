@@ -17,7 +17,7 @@
 	<div id="<?php echo esc_attr($anchor_id); ?>"></div>
 <?php endif; ?>
 
-<div class="<?php echo esc_attr($class_name); ?>">
+<div data-aos="fade-up" class="<?php echo esc_attr($class_name); ?>">
 	<div class="container experience-box">
 		<div class="experience-content">
 			<h2><?php echo $heading; ?></h2>
@@ -30,7 +30,7 @@
 					$company_name = $list['company_name'];
 					$year = $list['year'];
 					$description = $list['description']; ?>
-					<div class="experience-item">
+					<div data-aos="fade-up" class="experience-item">
 
 						<?php if ($position || $year): ?>
 							<div class="position-year">

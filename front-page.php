@@ -3,7 +3,7 @@
 
 <main class="main-content">
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		<div class="container">
+		<div data-aos="fade-up" class="container">
 			<h1><?php the_title(); ?></h1>
 		</div>
 		<?php the_content(); ?>

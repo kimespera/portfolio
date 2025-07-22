@@ -141,13 +141,15 @@ function portfolio_scripts() {
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/all.min.css', array(), _S_VERSION );
 	wp_enqueue_style( 'slick-nav', get_template_directory_uri() . '/css/slicknav.min.css', array(), _S_VERSION );
 	wp_enqueue_style( 'glightbox', get_template_directory_uri() . '/css/glightbox.min.css', array(), _S_VERSION );
+	wp_enqueue_style( 'aos', get_template_directory_uri() . '/css/aos.css', array(), _S_VERSION );
 	wp_enqueue_style( 'portfolio-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'portfolio-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'slick-nav', get_template_directory_uri() . '/js/jquery.slicknav.min.js', array( 'jquery' ), _S_VERSION, true );
 	wp_enqueue_script( 'portfolio-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'glightbox.min', get_template_directory_uri() . '/js/glightbox.min.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'glightbox', get_template_directory_uri() . '/js/glightbox.min.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'aos', get_template_directory_uri() . '/js/aos.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'customizer', get_template_directory_uri() . '/js/customizer.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

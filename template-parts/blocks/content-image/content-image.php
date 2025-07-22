@@ -20,7 +20,7 @@
 	<div id="<?php echo esc_attr($anchor_id); ?>"></div>
 <?php endif; ?>
 
-<div class="<?php echo esc_attr($class_name); ?>">
+<div data-aos="fade-up" class="<?php echo esc_attr($class_name); ?>">
 	<div class="container content-img-box">
 		<?php if($section_heading): ?>
 			<h2 class="content-img-heading">
