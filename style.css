@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700;900&display=swap');
+
 /*!
 Theme Name: Portfolio
 Author: Kim Espera
@@ -383,8 +385,6 @@ html {
 
 /* Typography
 --------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700;900&display=swap');
-
 body,
 button,
 input,
