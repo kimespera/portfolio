@@ -17,7 +17,7 @@
 	<div id="<?php echo esc_attr($anchor_id); ?>"></div>
 <?php endif; ?>
 
-<div data-aos="fade-up" class="<?php echo esc_attr($class_name); ?>">
+<div class="<?php echo esc_attr($class_name); ?>" data-aos="fade-up">
 	<div class="container form-content">
 		<div class="form-col"><?php echo $content; ?></div>
 		<div class="form-col"><?php echo do_shortcode($form_shortcode); ?></div>
