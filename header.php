@@ -10,6 +10,7 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+	<div id="particles-js"></div>
 	<header class="header">
 		<div class="container header-content">
 			<div class="logo">

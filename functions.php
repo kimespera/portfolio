@@ -146,6 +146,7 @@ function portfolio_scripts() {
 	wp_style_add_data( 'portfolio-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'particles', get_template_directory_uri() . '/js/particles.min.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'slick-nav', get_template_directory_uri() . '/js/jquery.slicknav.min.js', array( 'jquery' ), _S_VERSION, true );
 	wp_enqueue_script( 'portfolio-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'glightbox', get_template_directory_uri() . '/js/glightbox.min.js', array(), _S_VERSION, true );
