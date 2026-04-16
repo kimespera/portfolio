@@ -3,6 +3,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="<?php bloginfo('description'); ?>">
 
 	<?php wp_head(); ?>
 	<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
@@ -14,7 +15,7 @@
 	<header class="header">
 		<div class="container header-content">
 			<div class="logo">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="Homepage">
 					<?php 
 						$logo = get_field('light_logo','option');
 						if( $logo ) {

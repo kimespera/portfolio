@@ -10,7 +10,7 @@
 								$link = $item['link'];
 								$icon = $item['icon'];
 									if( $link ): ?>
-										<a href="<?php echo esc_url( $link ); ?>" target="_blank">
+										<a href="<?php echo esc_url( $link ); ?>" target="_blank" aria-label="<?php echo $item['name']; ?>">
 											<?php echo $icon; ?>
 										</a>
 									<?php endif; ?>

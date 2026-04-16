@@ -49,7 +49,7 @@
 								<div class="platform"><b>Platform : </b><?php echo $platform; ?></div>
 								<div class="year"><b>Year : </b><?php echo $year; ?></div>
 								<div class="role"><b>Role : </b><?php echo $role; ?></div>
-								<a class="link" href="<?php echo esc_url( $link ); ?>" target="_blank">View Project <i class="fa-solid fa-up-right-from-square"></i></a>
+								<a class="link" href="<?php echo esc_url( $link ); ?>" target="_blank" aria-label="View Project: <?php the_title_attribute(); ?>">View Project <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i></a>
 							</div>
 						</div>
 					<?php endwhile; ?>
