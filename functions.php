@@ -410,27 +410,49 @@ if ( function_exists('acf_register_block_type') ) {
 }
 
 /* Lighthouse fixes */
-function defer_js($tag, $handle) {
-    if (is_admin()) return $tag;
 
-    return str_replace(' src', ' defer src', $tag);
+// DEFER selected JS only
+function defer_js($tag, $handle, $src) {
+	if (is_admin()) {
+		return $tag;
+	}
+
+	$defer_handles = array(
+		'aos',
+		'glightbox',
+		'slicknav',
+		'particles',
+		'customizer'
+	);
+
+	if (in_array($handle, $defer_handles, true)) {
+		return '<script src="' . esc_url($src) . '" defer></script>';
+	}
+
+	return $tag;
 }
-add_filter('script_loader_tag', 'defer_js', 10, 2);
+add_filter('script_loader_tag', 'defer_js', 10, 3);
 
+// REMOVE jQuery Migrate
 function remove_jquery_migrate($scripts) {
-    if (!is_admin() && isset($scripts->registered['jquery'])) {
-        $scripts->registered['jquery']->deps = array('jquery-core');
-    }
+	if (!is_admin() && isset($scripts->registered['jquery'])) {
+		$scripts->registered['jquery']->deps = array('jquery-core');
+	}
 }
 add_action('wp_default_scripts', 'remove_jquery_migrate');
 
+// DISABLE block-library CSS (if not using Gutenberg blocks on frontend)
 function remove_block_css() {
 	wp_dequeue_style('wp-block-library');
+	wp_dequeue_style('wp-block-library-theme');
 }
 add_action('wp_enqueue_scripts', 'remove_block_css', 100);
 
-function async_css($html, $handle) {
-	if (is_admin()) return $html;
+// LOAD selected non-critical CSS async
+function async_css($html, $handle, $href, $media) {
+	if (is_admin()) {
+		return $html;
+	}
 
 	$async_handles = array(
 		'aos',
@@ -438,10 +460,11 @@ function async_css($html, $handle) {
 		'glightbox'
 	);
 
-	if (in_array($handle, $async_handles)) {
-		$html = str_replace("rel='stylesheet'", "rel='preload' as='style' onload=\"this.rel='stylesheet'\"", $html);
+	if (in_array($handle, $async_handles, true)) {
+		return '<link rel="preload" href="' . esc_url($href) . '" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' .
+			'<noscript><link rel="stylesheet" href="' . esc_url($href) . '"></noscript>';
 	}
 
 	return $html;
 }
-add_filter('style_loader_tag', 'async_css', 10, 2);
+add_filter('style_loader_tag', 'async_css', 10, 4);
