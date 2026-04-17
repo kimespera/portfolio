@@ -49,6 +49,26 @@ AOS.init();
 		openedSymbol: '',
 	});
 
+	// Accessibility fix for SlickNav button
+	const $slickBtn = $('#menu-toggle .slicknav_btn');
+	const $slickNav = $('#menu-toggle .slicknav_nav');
+
+	$slickBtn.attr({
+		'aria-label': 'Open menu',
+		'aria-expanded': 'false',
+		'aria-controls': 'mobile-menu'
+	});
+
+	$slickNav.attr('id', 'mobile-menu');
+
+	$slickBtn.on('click', function() {
+		const isExpanded = $(this).attr('aria-expanded') === 'true';
+
+		$(this).attr('aria-expanded', isExpanded ? 'false' : 'true');
+		$(this).attr('aria-label', isExpanded ? 'Open menu' : 'Close menu');
+	});
+
+
 	const items = $('.project-item');
 	const itemsPerLoad = 3;
 	let currentVisible = 9;

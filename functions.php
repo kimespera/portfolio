@@ -220,7 +220,12 @@ add_filter( 'mce_buttons', 'add_mce_buttons' );
 
 // Load Font Awesome in admin for icon visibility
 function enqueue_fontawesome_in_admin() {
-	wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css' );
+	wp_enqueue_style(
+		'font-awesome-admin',
+		get_template_directory_uri() . '/assets/fontawesome/css/all.min.css',
+		array(),
+		'6.5.0'
+	);
 }
 add_action( 'admin_enqueue_scripts', 'enqueue_fontawesome_in_admin' );
 
@@ -403,3 +408,40 @@ function register_acf_block_types() {
 if ( function_exists('acf_register_block_type') ) {
 	add_action('acf/init', 'register_acf_block_types');
 }
+
+/* Lighthouse fixes */
+function defer_js($tag, $handle) {
+    if (is_admin()) return $tag;
+
+    return str_replace(' src', ' defer src', $tag);
+}
+add_filter('script_loader_tag', 'defer_js', 10, 2);
+
+function remove_jquery_migrate($scripts) {
+    if (!is_admin() && isset($scripts->registered['jquery'])) {
+        $scripts->registered['jquery']->deps = array('jquery-core');
+    }
+}
+add_action('wp_default_scripts', 'remove_jquery_migrate');
+
+function remove_block_css() {
+	wp_dequeue_style('wp-block-library');
+}
+add_action('wp_enqueue_scripts', 'remove_block_css', 100);
+
+function async_css($html, $handle) {
+	if (is_admin()) return $html;
+
+	$async_handles = array(
+		'aos',
+		'slicknav',
+		'glightbox'
+	);
+
+	if (in_array($handle, $async_handles)) {
+		$html = str_replace("rel='stylesheet'", "rel='preload' as='style' onload=\"this.rel='stylesheet'\"", $html);
+	}
+
+	return $html;
+}
+add_filter('style_loader_tag', 'async_css', 10, 2);
