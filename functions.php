@@ -469,21 +469,26 @@ function async_css($html, $handle, $href, $media) {
 }
 add_filter('style_loader_tag', 'async_css', 10, 4);
 
-// Remove Font Awesome CDN styles added by plugins to eliminate render-blocking and duplicate loading
+// Remove Font Awesome CDN styles added by plugins/themes
 function remove_all_fontawesome() {
 	global $wp_styles;
 
-	if (!is_admin() && isset($wp_styles->registered)) {
-		foreach ($wp_styles->registered as $handle => $style) {
-			if (
-				strpos($style->src, 'fontawesome') !== false ||
-				strpos($style->src, 'use.fontawesome') !== false ||
-				strpos($style->src, 'cdnjs.cloudflare.com/ajax/libs/font-awesome') !== false
-			) {
-				wp_dequeue_style($handle);
-				wp_deregister_style($handle);
-			}
+	if ( is_admin() || empty( $wp_styles->registered ) ) {
+		return;
+	}
+
+	foreach ( $wp_styles->registered as $handle => $style ) {
+		$src = isset( $style->src ) ? $style->src : '';
+
+		if (
+			strpos( $src, 'use.fontawesome.com' ) !== false ||
+			strpos( $src, 'fontawesome' ) !== false ||
+			strpos( $src, 'font-awesome' ) !== false ||
+			strpos( $src, 'cdnjs.cloudflare.com/ajax/libs/font-awesome' ) !== false
+		) {
+			wp_dequeue_style( $handle );
+			wp_deregister_style( $handle );
 		}
 	}
 }
-add_action('wp_enqueue_scripts', 'remove_all_fontawesome', 999);
+add_action( 'wp_enqueue_scripts', 'remove_all_fontawesome', 999 );
