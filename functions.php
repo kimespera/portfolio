@@ -468,3 +468,19 @@ function async_css($html, $handle, $href, $media) {
 	return $html;
 }
 add_filter('style_loader_tag', 'async_css', 10, 4);
+
+// Remove any Font Awesome CDN styles injected by plugins/themes (to avoid duplicate loading and render-blocking)
+function remove_all_fontawesome() {
+	global $wp_styles;
+
+	if (!is_admin() && isset($wp_styles->registered)) {
+		foreach ($wp_styles->registered as $handle => $style) {
+			if (strpos($style->src, 'fontawesome') !== false || 
+				strpos($style->src, 'use.fontawesome') !== false) {
+				wp_dequeue_style($handle);
+				wp_deregister_style($handle);
+			}
+		}
+	}
+}
+add_action('wp_enqueue_scripts', 'remove_all_fontawesome', 999);
