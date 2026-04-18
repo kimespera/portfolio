@@ -492,3 +492,19 @@ function remove_all_fontawesome() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'remove_all_fontawesome', 999 );
+
+// Strip Font Awesome CDN injected directly by plugins (last resort fix)
+function start_strip_fontawesome_buffer() {
+	if (!is_admin()) {
+		ob_start('strip_fontawesome_cdn');
+	}
+}
+add_action('template_redirect', 'start_strip_fontawesome_buffer');
+
+function strip_fontawesome_cdn($html) {
+	return preg_replace(
+		'#<link[^>]+href=["\']https?:\/\/use\.fontawesome\.com\/[^"\']+["\'][^>]*>#i',
+		'',
+		$html
+	);
+}
