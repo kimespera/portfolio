@@ -420,9 +420,10 @@ function defer_js($tag, $handle, $src) {
 	$defer_handles = array(
 		'aos',
 		'glightbox',
-		'slicknav',
+		'slick-nav',
 		'particles',
-		'customizer'
+		'customizer',
+		'portfolio-navigation'
 	);
 
 	if (in_array($handle, $defer_handles, true)) {
@@ -441,7 +442,7 @@ function remove_jquery_migrate($scripts) {
 }
 add_action('wp_default_scripts', 'remove_jquery_migrate');
 
-// DISABLE block-library CSS (if not using Gutenberg blocks on frontend)
+// DISABLE block-library CSS (only if not using core Gutenberg block styles on frontend)
 function remove_block_css() {
 	wp_dequeue_style('wp-block-library');
 	wp_dequeue_style('wp-block-library-theme');
@@ -456,7 +457,7 @@ function async_css($html, $handle, $href, $media) {
 
 	$async_handles = array(
 		'aos',
-		'slicknav',
+		'slick-nav',
 		'glightbox'
 	);
 
